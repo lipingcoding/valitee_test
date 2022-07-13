@@ -25,13 +25,15 @@ function App() {
     //   </header>
     // </div>
     <Router>
-      <div>
+      <div className='App'>
+      <header className="App-header">
         <nav>
-          <Link to="/">Home</Link>
-          <Link to="/game">Game</Link>
-          <Link to="/foo">Foo</Link>
-          <Link to="/bar">Bar</Link>
+          <Link to="/" className='navlink'>主页</Link>
+          <Link to="/game" className='navlink'>石头剪刀布</Link>
+          <Link to="/foo" className='navlink'>其他</Link>
+          {/* <Link to="/bar">Bar</Link> */}
         </nav>
+        </header>
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route  path="/game" element={<Game/>} />
