@@ -15,13 +15,24 @@ function Result(ai_choice:string, player_choice:string){
         return <p>请出招</p>
     }
     else if(ai_choice==player_choice){
-        return <p>平局</p>;
+        return (<p>平局</p>);
     }else if ((ai_choice=="石头" && player_choice=="剪刀")||(ai_choice=="剪刀" && player_choice=="布")||(ai_choice=="布" && player_choice=="石头")){
-        return <p>AI胜</p>;
+        return (<p>AI胜</p>);
     }else{
-        return <p>玩家胜</p>;
+        return (<p>玩家胜</p>);
     }
 }
+
+function Status(ai_choice:string, player_choice:string){
+    if(player_choice=='空'){
+        return <br />
+    }
+    else{ return (
+        <div>{ai_choice} vs {player_choice}</div>
+    )
+    }
+}
+
 
 export function Game() {
     const [ai_choice, set_ai_choice] = useState("空")
@@ -31,11 +42,13 @@ export function Game() {
     <h1>石头剪刀布人机大战</h1>
     <div className='result'>
         {/* <div><h1>战</h1></div> */}
-        <div>AI VS 玩家</div>
-        <div>{ai_choice} vs {player_choice}</div>
+        <div>AI VS 玩家 </div>
+        <br />
+        {/* <div>{ai_choice} vs {player_choice}</div> */}
+        {Status(ai_choice, player_choice)}
        {Result(ai_choice, player_choice)}
     </div>
-    <div className='player_button'> 请出招：
+    <div className='player_button'>
     <button onClick={() => {set_player_choice("石头"); set_ai_choice(randomChoice())}}>石头</button>
     <button onClick={() => {set_player_choice("剪刀"); set_ai_choice(randomChoice())}}>剪刀</button>
     <button onClick={() => {set_player_choice("布"); set_ai_choice(randomChoice())}}>布</button>
