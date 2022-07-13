@@ -22,7 +22,7 @@ function App() {
           <Route path="/" element={<Home/>} />
           <Route  path="/game" element={<Game/>} />
           <Route  path="/foo" element={<NotFound404/>} />
-          <Route  path="/bar" element={<NotFound404/>} />
+          <Route  path="*" element={<NotFound404/>} />
         </Routes>
       </div>
     </Router>
