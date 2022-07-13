@@ -4,7 +4,7 @@ import './App.css';
 
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom'
 
-import {Game, NotFound404} from './pages'
+import {Home, Game, NotFound404} from './pages'
 
 function App() {
   return (
@@ -27,12 +27,14 @@ function App() {
     <Router>
       <div>
         <nav>
-          <Link to="/">Game</Link>
+          <Link to="/">Home</Link>
+          <Link to="/game">Game</Link>
           <Link to="/foo">Foo</Link>
           <Link to="/bar">Bar</Link>
         </nav>
         <Routes>
-          <Route  path="/" element={<Game/>} />
+          <Route path="/" element={<Home/>} />
+          <Route  path="/game" element={<Game/>} />
           <Route  path="/foo" element={<NotFound404/>} />
           <Route  path="/bar" element={<NotFound404/>} />
         </Routes>
